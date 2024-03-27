@@ -40,3 +40,7 @@ app.get("/consulta", function(req, res){
         console.log("Erro: Nenhum agendamento encontrado", erro)
     })
 })
+
+app.get("/atualizar", function(req,res){
+    res.render("atualizar")
+})
