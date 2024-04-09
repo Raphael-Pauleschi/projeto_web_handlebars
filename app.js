@@ -4,7 +4,17 @@ const handlebars = require("express-handlebars").engine;
 const bodyParser = require("body-parser");
 const post = require("./models/post");
 
-app.engine("handlebars", handlebars({ defaultLayout: "main" }));
+app.engine(
+  "handlebars",
+  handlebars({
+    defaultLayout: "main",
+    helpers: {
+      isEqual: function (expectedValue, value) {
+        return value === expectedValue;
+      },
+    },
+  })
+);
 app.set("view engine", "handlebars");
 
 app.use(bodyParser.urlencoded({ extended: false }));
